@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% if title %} {{title}} {% else %} Default {% endif %}</title>
+        <link rel="stylesheet" href={% static 'homework/style.css'%}>
+    </head>
+    <body>
+        <header>
+            <h1>База данни със заданията в 9. "ж" клас </h1>
+            <h2>Трета ревизия на базата данни, направена изцяло от нас за целите на класа!</h2>
+        </header>
+        <nav>
+            <img id='logo-img' src={% static 'homework/logo.png'%}>
+            <a {% if homeActive %} id='active' {%endif%} href="#">
+                <img src="{% static 'homework/home.png'%}" alt="Начало">
+                <span>Начало</span>
+            </a>
+            <a {% if tomorrowActive %} id='active' {%endif%} href="#">
+                <img src="{% static 'homework/calendar.png'%}" alt="Утре">
+                <span>Утре</span>
+            </a>
+            <a {% if thisWeekActive %} id='active' {%endif%} href="#">
+                <img src="{% static 'homework/number-7.png'%}" alt="Тази седмица">
+                <span>Тази седмица</span>
+            </a>
+        </nav>
+        <main>
+            {% block 'content'%}
+            {% endblock %}
+        </main>
+        <footer>
+            <span>Авторско право - учебна година 2025 / 2026</span>
+        </footer>
+    </body>
+</html>
