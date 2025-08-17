@@ -1,0 +1,29 @@
+/* *Стилове за задания */
+.assignment-box
+{
+    margin: 2%;
+    background: rgba(255, 255, 255, 0.27);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.4px);
+    -webkit-backdrop-filter: blur(6.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+}
+.subject-info
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: baseline;
+    border-bottom: 3px solid black;
+    border-radius: 4px;
+}
+.subject-info > h1
+{
+    color: rgb(38, 71, 5)
+}
+.description-info
+{
+    font-size: 1rem;
+}

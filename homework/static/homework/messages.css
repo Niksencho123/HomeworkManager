@@ -1,0 +1,50 @@
+/* *Messages */
+.messagesTab
+{
+    border: 3px inset rgb(73, 73, 73);
+    margin: 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.messagesTab.orange
+{
+    background: #ffcd70;
+    background: linear-gradient(30deg, rgba(255, 205, 112, 1) 0%, rgba(255, 166, 0, 1) 100%);
+}
+
+.messagesTab.red
+{
+    background: #ff8282;
+    background: linear-gradient(30deg, rgba(255, 130, 130, 1) 0%, rgba(255, 42, 0, 1) 100%);    
+}
+
+.messagesTab.green
+{
+    background: #7ff062;
+    background: linear-gradient(30deg, rgba(127, 240, 98, 1) 0%, rgba(42, 153, 11, 1) 100%);
+}
+
+
+.messagesTab > .messageContent
+{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content:center;
+    text-align: center;
+    
+    align-items: start;
+}
+
+.messagesTab > img
+{
+    height: 85px;
+    margin: 10px;
+    margin-right: 30px;
+    padding: 5px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
