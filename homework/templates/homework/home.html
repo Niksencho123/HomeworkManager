@@ -1,1 +1,28 @@
 {% extends 'homework/base.html'%}
+{% load static %}
+
+{%block 'content'%}
+
+{% for message in activeMessages %}
+    <div class="messagesTab {% if message.messageImportance == -1%}green{% endif %} {% if message.messageImportance == 0%}orange{% endif %} {% if message.messageImportance == 1%}red{% endif %}">
+        <img src="
+            {% if message.messageImportance == -1 %}
+                {% static 'homework/information.png' %}
+            {% elif message.messageImportance == 0 %}
+                {% static 'homework/warning.png' %}
+            {% elif message.messageImportance == 1 %}
+                {% static 'homework/crisis.png' %}
+            {% endif %}
+        ">
+        <div class='messageContent'>
+            <div class='headerMessage'>
+                <h1>{{message.messageLabel}}</h1>
+            </div>
+            <div class='contentMessage'>
+                <p>{{message.messageText}}</p>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{%endblock%}

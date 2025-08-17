@@ -2,6 +2,8 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
+
+# TODO: Съобщенията трябва да могат да се добавят и чрез отделна страница
 class Messages(models.Model):
     messageLabel = models.CharField(max_length=255, verbose_name="Заглавие")
     messageText = models.TextField(verbose_name="Текст")
