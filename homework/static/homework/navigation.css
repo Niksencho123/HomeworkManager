@@ -12,6 +12,10 @@ header
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: relative;
 }
+header > h2
+{
+    font-weight: 400;
+}
 
 b
 {

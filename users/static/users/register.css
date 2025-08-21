@@ -1,0 +1,78 @@
+#register-form
+{
+    padding: 5px;
+    font-weight: 400;
+    margin: 2%;
+    padding: 2%;
+    border-left: 5px solid rgb(5, 78, 5);
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.419);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+}
+#register-form > form
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#register-form label
+{
+    display: block;
+    font-size: 1.5rem;
+}
+#register-form input
+{
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    width: 50%;
+    padding: 2px;
+    font-weight: 400;
+    height: 40px;
+}
+#register-form > form input[type='submit']
+{
+    position: relative;
+    height: 35px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 2px;
+    font-weight: 500;
+    padding: 3px;
+    border: 1px solid black;
+    color:rgb(37, 120, 9);
+    transition: background-color 0.4s;
+}
+#register-form > form input[type='submit']:hover
+{
+    background-color: rgb(37, 120, 9);
+    color: white;
+    cursor: pointer;
+}
+#register-form ul
+{
+    padding-left: 30px;
+}
+#register-form ul > li
+{
+    font-weight: 300;
+}
+.helptext
+{
+    font-weight: 300;
+    margin: 5px;
+    padding-left: 20px;
+}
+@media screen and (max-width: 500px){
+    #register-form
+    {
+        margin: 4%;
+    }
+    #register-form input
+    {
+        width:100%;
+    }
+}
