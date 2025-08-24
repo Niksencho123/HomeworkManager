@@ -28,18 +28,26 @@
     border: 1px solid black;
     border-radius: 5px;
     font-size: 1.2rem;
-    width: 50%;
+    width: 100%;
     padding: 2px;
     font-weight: 400;
     height: 40px;
+    outline: none;
 }
+
+#register-form input:focus
+{
+    box-shadow: 0px 0px 10px rgb(10, 121, 0);
+    outline-offset: 0;
+}
+
 #register-form > form input[type='submit']
 {
     position: relative;
     height: 35px;
     width: 100%;
     margin-top: 20px;
-    border-radius: 2px;
+    border-radius: 5px;
     font-weight: 500;
     padding: 3px;
     border: 1px solid black;
@@ -54,7 +62,7 @@
 }
 #register-form ul
 {
-    padding-left: 30px;
+    padding-left: 15px;
 }
 #register-form ul > li
 {
@@ -64,12 +72,21 @@
 {
     font-weight: 300;
     margin: 5px;
-    padding-left: 20px;
+    padding-left: 15px;
+}
+.errorlist
+{
+    margin-left: 15px;
+}
+
+.errorlist > li
+{
+    color: red;
 }
 @media screen and (max-width: 500px){
     #register-form
     {
-        margin: 4%;
+        margin: 2%;
     }
     #register-form input
     {

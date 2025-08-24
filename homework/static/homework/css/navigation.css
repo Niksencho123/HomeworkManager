@@ -3,7 +3,7 @@ header
 {
     text-align: center;
     margin: 2%;
-    padding: 10px;
+    padding: 20px;
     background: rgba(255, 255, 255, 0.414);
     border-radius: 16px;
     box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@ nav
     border: 1px solid rgba(255, 255, 255, 0.96);
 }
 
-nav > a {
+nav a {
     display: flex;
     justify-content: center;
     width: 120px;
@@ -51,17 +51,18 @@ nav > a {
     color: rgb(0, 0, 0);
     position: relative;
     overflow: hidden;
-  
+    transition: color 0.2s;
 }
-nav > a > span
+nav a > span
 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400 !important;
     border-radius: 10px;
     padding: 2px;
+    text-align: center;
 }
 
-nav > a::before
+nav a::before
 {
     content: "";
     position: absolute;
@@ -75,12 +76,12 @@ nav > a::before
     background-color: #378545ab;
 }
 
-nav > a:hover::before
+nav a:hover::before
 {
     width: 100%;
 }
 
-nav > a > img
+nav a > img
 {
     height: 40px;
     width: 40px;
@@ -95,5 +96,88 @@ nav img {
     height:100px;
 }
 
-/*TODO Navigation bar - По- малки устройства */
+/*! Автентикация */
 
+.auth
+{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+nav #logout::before
+{
+    background-color: #bc0909;
+}
+
+nav #login::before
+{
+    background-color: #05821c;
+}
+
+nav #register::before
+{
+    background-color: #b36f01;
+}
+
+nav #login, #logout, #register
+{
+    margin: 3px;
+    width: 120px; height: 100px;
+}
+
+
+nav #login:hover, #logout:hover, #register:hover
+{
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+/*TODO Navigation bar - По- малки устройства */
+@media screen and (max-width: 800px) {
+    nav{
+        flex-direction: column;
+        padding: 2%;
+    }
+    nav > #logo-img
+    {
+        visibility:hidden;
+        display: none;
+    }
+    nav > a
+    {
+        padding: 1%;
+        width: 100%;
+        flex-direction: row;
+        border: 1px solid black
+
+    }
+    nav a
+    {
+        border: 1px solid black
+    }
+    nav > a > img
+    {
+        margin-right: 20px;
+        margin: 2px;
+    }
+    .auth
+    {
+        margin-left: 0;
+        display: flex;
+        flex-direction: row;
+    }
+    nav #login, #logout, #register
+    {
+        flex-grow: 1;
+    }
+    nav a > span
+    {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    nav > a > span
+    {
+        font-size: 1.1rem;
+    }
+}

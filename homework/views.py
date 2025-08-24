@@ -30,4 +30,5 @@ class Tomorrow(View):
             "title": "Утрешни задания"
         }
         return render(request, "homework/tomorrow.html", context=context)
-
+def operation(request):
+    return render(request, "homework/success.html")

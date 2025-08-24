@@ -8,12 +8,12 @@
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% if title %} {{title}} {% else %} Default {% endif %}</title>
-        <link rel="stylesheet" href={% static 'homework/reset.css'%}>
-        <link rel="stylesheet" href={% static 'homework/navigation.css'%}>
-        <link rel="stylesheet" href={% static 'homework/messages.css'%}>
-        <link rel="stylesheet" href={% static 'homework/assignments.css'%}>
-        <link rel="stylesheet" href={% static 'users/register.css'%}>
-        <link rel='icon' href={% static 'homework/database.png'%}>
+        <link rel="stylesheet" href={% static 'homework/css/reset.css'%}>
+        <link rel="stylesheet" href={% static 'homework/css/navigation.css'%}>
+        <link rel="stylesheet" href={% static 'homework/css/messages.css'%}>
+        <link rel="stylesheet" href={% static 'homework/css/assignments.css'%}>
+        <link rel="stylesheet" href={% static 'users/css/register.css'%}>
+        <link rel='icon' href={% static 'homework/img/database.png'%}>
     </head>
     <body>
         <header>
@@ -21,26 +21,43 @@
             <h2>Трета ревизия на базата данни, направена изцяло от нас за целите на класа!</h2>
         </header>
         <nav>
-            <img id='logo-img' src={% static 'homework/logo.png'%}>
-        <a {% if homeActive %} id='active' {%endif%} href="{% url 'homework-home'%}">
-                <img src="{% static 'homework/home.png'%}" alt="Начало">
+            <img id='logo-img' src={% static 'homework/img/logo.png'%}>
+            <a {% if homeActive %} id='active' {%endif%} href="{% url 'homework-home'%}">
+                <img src="{% static 'homework/img/home.png'%}" alt="Начало">
                 <span>Начало</span>
             </a>
             <a {% if tomorrowActive %} id='active' {%endif%} href="{% url 'homework-tomorrow'%}">
-                <img src="{% static 'homework/calendar.png'%}" alt="Утре">
+                <img src="{% static 'homework/img/calendar.png'%}" alt="Утре">
                 <span>Утре</span>
             </a>
             <a {% if thisWeekActive %} id='active' {%endif%} href="#">
-                <img src="{% static 'homework/number-7.png'%}" alt="Тази седмица">
+                <img src="{% static 'homework/img/number-7.png'%}" alt="Тази седмица">
                 <span>Тази седмица</span>
             </a>
+            <div class='auth'>
+                {% if user.is_authenticated %}
+                    <a id='logout' href="{% url 'users-logout' %}">
+                        <img src="{% static 'homework/img/logout.png'%}" alt="Излезни">
+                        <span>Излизане</span>
+                    </a>
+                {%else%}
+                    <a id='login' href="{% url 'users-login' %}">
+                        <img src="{% static 'homework/img/login.png'%}" alt="Влезни">
+                        <span>Влизане</span>
+                    </a>
+                    <a id='register' href="{% url 'users-register' %}">
+                        <img src="{% static 'homework/img/registration.png'%}" alt="Регистрирай се">
+                        <span>Регистриране</span>
+                    </a>
+                {%endif%}
+            <div>
         </nav>
         <main>
             {% block 'content'%}
             {% endblock %}
         </main>
         <footer>
-            <span>Авторско право - учебна година 2025 / 2026</span>
+            <span> 9."ж" клас може би използва този сайт през учебната година 2025 / 2026 </span>
         </footer>
     </body>
 </html>

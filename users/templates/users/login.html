@@ -1,0 +1,12 @@
+{% extends 'homework/base.html'%}
+{% load static %}
+
+{% block 'content' %}
+<div id='register-form'>
+    <form method='POST'>
+        {% csrf_token %}
+        {{form.as_div}}
+        <input type='submit' value='Влизане'>
+    </form>
+</div>
+{% endblock %}
