@@ -13,5 +13,6 @@ urlpatterns = [
         name="users-login"
     ),
     path("logout/", views.LogoutView.as_view(), name='users-logout'),
-    path("<int:profileId>", views.profileHomework, name="users-profileinfo")
+    path("<int:profileId>", views.profileHomework, name="users-profileinfo"),
+    path("backup", views.backup, name="users-backup")
 ]
