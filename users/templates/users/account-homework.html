@@ -1,0 +1,25 @@
+{% extends 'homework/base.html'%}
+{% load static %}
+
+{% block 'content' %}
+<!--Стилът за headerArticle е в homework/css/navigation.css. Мързи ме да ги сменям всеки път-->
+{% if user.id != userInfo.id%}
+    <h1 class='headerArticle'>Информация за профил ID:{{userInfo.id}}</h1>
+{% else %}
+    <h1 class='headerArticle'>Информация за вашия профил в сайта</h1>
+{% endif %}
+<div class='profile-info'>
+    <img src="{{userInfo.studentprofile.profilePicture.url}}">
+    <div class='additional-info'>
+        <h1>{{userInfo.username}}</h1>
+        <p class='info'><span id='bolder'>Пълно име: </span>{{userInfo.first_name}} {{userInfo.last_name}}</p>
+        {% if userInfo.studentprofile.classNumber == -1%}
+        <p class='info'><span id='bolder'>Номер в класа: </span>Все още няма въведен номер от администратор</p>
+        {% else%}
+        <p class='info'><span id='bolder'>Номер в класа: </span>{{userInfo.studentprofile.classNumber}}</p>
+        {%endif%}
+        <p class='info'><span id='bolder'>Електронна поща: </span>{{userInfo.email}}</p>
+        <p class='info'><span id='bolder'>Създаден на: </span>{{userInfo.date_joined|date:"d.m.Y"}}</p>
+    </div>
+</div>
+{% endblock %}

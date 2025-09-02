@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
@@ -31,6 +32,8 @@ class Subject(models.Model):
 class Assignment(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, verbose_name="Предмет")
     description = models.TextField(verbose_name="Описание")
+    addedBy = models.ForeignKey(User, null=True, default=None, on_delete=models.CASCADE, verbose_name="Добавен от потребител")
+    dateAdded = models.DateTimeField("Добавено на", auto_now_add=True)
     dateDue = models.DateField(verbose_name="Крайна дата")
 
     def __str__(self):

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.utils import timezone
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from datetime import timedelta
 from django.contrib.auth.forms import UserCreationForm
@@ -24,11 +25,17 @@ class Tomorrow(View):
     def get(self, request):
         tomorrowDate = timezone.now().date() + timedelta(days=1)
         tomorrowHomework = models.Assignment.objects.filter(dateDue=tomorrowDate)
+        paginatorObj = Paginator(tomorrowHomework, 3)
+        pageNumber = request.GET.get("page")
+
+        homeworkObj = paginatorObj.get_page(pageNumber)
         context = {
             "tomorrowActive": True,
-            "homework": tomorrowHomework,
+            "homework": homeworkObj,
             "title": "Утрешни задания"
         }
         return render(request, "homework/tomorrow.html", context=context)
-def operation(request):
-    return render(request, "homework/success.html")
+
+def assignmentInfo(request, homeworkId):
+    result = models.Assignment.objects.get(id=homeworkId)
+    return render(request, "homework/assignment.html", context={"assignment": result, "title": f"Задание №{result.id}"})

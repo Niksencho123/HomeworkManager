@@ -1,27 +1,56 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.urls import resolve
 from django.contrib import messages
+from .forms import SignUpForm
+from django.http import Http404
+from .models import StudentProfile
 
 # Create your views here.
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
+
             messages.success(request, f"Профилът беше добавен")
             return redirect("homework-home")
         else:
             return render(request, "users/register.html", {"form": form})
     else:
-        form = UserCreationForm()
-    return render(request, "users/register.html", {"form": form})
+        form = SignUpForm()
+    return render(request, "users/register.html", {"form": form, "registerActive": True})
 
 from django.contrib.auth import logout
 from django.views import View
 
-class LogoutView(View):
+
+class LogoutView(LoginRequiredMixin, View):
     def get(self, request):
         messages.success(request, message="Излезнахте от акаунта си :(")
         logout(request)
         return redirect('homework-home')
+
+@login_required
+def profileHomework(request, profileId):
+    try:
+        lookupUser = User.objects.get(id=profileId)
+    except User.DoesNotExist:
+        raise Http404("Потребителят не е намерен")
+    context = {
+        "userInfo": lookupUser,
+        
+    }
+    if request.user.is_authenticated:
+        if request.user.id == profileId:
+            context["title"] = f"Вашият профил"
+            context["profileViewOwn"] = True
+        else:
+            context["title"] = f"Профил №{profileId}"
+    else:
+        context["title"] = f"Профил №{profileId}"
+    return render(request, "users/account-homework.html", context=context)

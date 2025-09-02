@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +26,11 @@ SECRET_KEY = 'django-insecure-^sn_jhwm20crz)y3ymhn$6v-e+)3d#c+=gygt%y9c0friyj#0#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
 
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = []
 
 # Application definition
 
@@ -129,3 +133,4 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "homework-home"
 LOGOUT_REDIRECT_URL = 'homework-home'
+LOGIN_URL = "users-login"

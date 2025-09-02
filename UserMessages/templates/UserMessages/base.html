@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Messages</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% if title %} {{title}} {% else %} Default {% endif %}</title>
+        <link rel="stylesheet" href={% static 'UserMessages/css/reset.css'%}>
+    </head>
+    <body>
+        <header>
+            <h1>Добре дошли в малката социална мрежа на 9."ж" клас!</h1>
+            <h2>Влезнал потребител: <i>{{user.username}}</i> </h2>
+        </header>
+        <main>
+            {% block content %}
+            <!-- Page content goes here -->
+            {% endblock %}
+        </main>
+        <footer>
+            <p>&copy; 2024 HomeworkManager</p>
+        </footer>
+    </body>
+</html>

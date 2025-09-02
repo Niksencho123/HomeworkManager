@@ -10,7 +10,12 @@
     -webkit-backdrop-filter: blur(6.4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 30px;
-    border-left: 5px solid rgb(9, 84, 9)
+    border-left: 5px solid rgb(9, 84, 9);
+    transition: scale 0.5s;
+}
+.assignment-box:hover
+{
+    scale: 1.02;
 }
 .subject-info
 {
@@ -26,6 +31,10 @@
     color: rgb(38, 71, 5);
     padding-bottom: 10px;
 }
+.subject-info a
+{
+    text-decoration-color: rgb(0, 110, 5);
+}
 .description-info
 {
     font-size: 1.5rem;
@@ -35,7 +44,7 @@
     font-weight: 400;
     padding-top: 10px;
 }
-.description-info #desc
+.description-info .desc
 {
     font-weight: 900;
     font-size: 1.6rem;
@@ -46,10 +55,19 @@
     .subject-info h1
     {
         color: rgb(38, 71, 5);
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
     .subject-info h3
     {
+        font-size: 1.1rem;
+    }
+    .description-info p
+    {
         font-size: 1rem;
     }
+    .description-info .desc
+    {
+        font-size: 1.1rem;
+    }
+
 }

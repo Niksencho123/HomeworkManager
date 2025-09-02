@@ -28,7 +28,7 @@ nav
 {
     display: flex;
     flex-direction: left;
-    margin: 2%;
+    margin-left: 2%; margin-right: 2%;
     background: rgba(255, 255, 255, 0.28);
     border-radius: 16px;
     box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.419);
@@ -91,6 +91,7 @@ nav a > img
 {
     background-color: #20722f;
     color: rgb(234, 218, 218);
+    text-shadow: 3px 3px 5px black;
 }
 nav img {
     height:100px;
@@ -119,15 +120,19 @@ nav #register::before
 {
     background-color: #b36f01;
 }
+nav #profileView::before
+{
+    background-color: darkgoldenrod;
+}
 
-nav #login, #logout, #register
+nav #login, #logout, #register, #profileView
 {
     margin: 3px;
     width: 120px; height: 100px;
 }
 
 
-nav #login:hover, #logout:hover, #register:hover
+nav #login:hover, #logout:hover, #register:hover, #profileView:hover
 {
     color: white;
     text-shadow: 3px 3px 3px black;
@@ -135,6 +140,14 @@ nav #login:hover, #logout:hover, #register:hover
 
 /*TODO Navigation bar - По- малки устройства */
 @media screen and (max-width: 800px) {
+    header > h1
+    {
+        font-size: 1.3rem;
+    }
+    header > h2
+    {
+        font-size: 1.1rem;
+    }
     nav{
         flex-direction: column;
         padding: 2%;
@@ -167,7 +180,7 @@ nav #login:hover, #logout:hover, #register:hover
         display: flex;
         flex-direction: row;
     }
-    nav #login, #logout, #register
+    nav #login, #logout, #register, #profileView
     {
         flex-grow: 1;
     }

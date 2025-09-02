@@ -13,6 +13,7 @@
         <link rel="stylesheet" href={% static 'homework/css/messages.css'%}>
         <link rel="stylesheet" href={% static 'homework/css/assignments.css'%}>
         <link rel="stylesheet" href={% static 'users/css/register.css'%}>
+        <link rel="stylesheet" href={% static 'users/css/account-homework.css'%}>
         <link rel='icon' href={% static 'homework/img/database.png'%}>
     </head>
     <body>
@@ -40,12 +41,16 @@
                         <img src="{% static 'homework/img/logout.png'%}" alt="Излезни">
                         <span>Излизане</span>
                     </a>
+                    <a {% if profileViewOwn %} id='active' {%endif%} id='profileView' href="{% url 'users-profileinfo' user.id %}">
+                        <img src="{% static 'homework/img/profile.png'%}" alt="Профил">
+                        <span>Профил</span>
+                    </a>
                 {%else%}
-                    <a id='login' href="{% url 'users-login' %}">
+                    <a {% if loginActive %} id='active' {%endif%} id='login' href="{% url 'users-login' %}">
                         <img src="{% static 'homework/img/login.png'%}" alt="Влезни">
                         <span>Влизане</span>
                     </a>
-                    <a id='register' href="{% url 'users-register' %}">
+                    <a {% if registerActive %} id='active' {%endif%} id='register' href="{% url 'users-register' %}">
                         <img src="{% static 'homework/img/registration.png'%}" alt="Регистрирай се">
                         <span>Регистриране</span>
                     </a>
@@ -57,7 +62,7 @@
             {% endblock %}
         </main>
         <footer>
-            <span> 9."ж" клас може би използва този сайт през учебната година 2025 / 2026 </span>
+            <span> &copy 2025 9."ж" клас от Математическа гимназия "Академик Кирил Попов", Пловдив използва този сайт през учебната година 2025 / 2026 </span>
         </footer>
     </body>
 </html>

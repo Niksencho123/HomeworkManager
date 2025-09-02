@@ -93,7 +93,7 @@
 
 
 /* !ПО- МАЛКИ УСТРОЙСТВА */
-@media only screen and (max-width: 500px)
+@media only screen and (max-width: 700px)
 {
     .messagesContent
     {
@@ -102,11 +102,11 @@
     }
     .messagesTab p
     {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     .messagesTab h1
     {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .website-messages h2
     {
