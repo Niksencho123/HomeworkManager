@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block 'content' %}
-<div id='register-form'>
+<div id='forms'>
     <form method='POST'>
         {% csrf_token %}
         {{form.as_div}}

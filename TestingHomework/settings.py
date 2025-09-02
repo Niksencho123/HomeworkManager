@@ -30,7 +30,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000", "https://lodge-king-care-murphy.trycloudflare.com"]
 
 # Application definition
 

@@ -1,0 +1,28 @@
+{% extends "UserMessages/base.html" %}
+{%load static%}
+
+{% block content %}
+    <div class='add-post'>
+        <form method="POST" action="{% url 'messages-main'%}">
+            {% csrf_token %}
+            <input required type='text' id='new-message' name='new-message'>
+            <button type="submit">
+                <img src="{% static 'UserMessages/img/send.png'%}" alt="Submit" width="20" height="20">
+            </button>
+        </form>
+    </div>
+    {% for post in posts%}
+        <div class='post'>
+            <img src="{{post.userConn.studentprofile.profilePicture.url}}">
+            <div class='content'>
+                <div class='user-info'>
+                    <h1><span>@{{post.userConn.username}}</span> ({{post.userConn.first_name}} {{post.userConn.last_name}})</h1>
+                    <h2>{{post.dateAdded|date:"G:i ч. | j F Y"}}</h2>
+                </div>
+                <div class='post-info'>
+                    <p>{{post.message}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

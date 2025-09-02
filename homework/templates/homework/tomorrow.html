@@ -17,6 +17,12 @@
                 <p><span class='desc'>Описание:</span> {{assignment.description}}</p>
             </div>
         </div>
+    {% empty %}
+        <div class="assignment-box">
+            <div class="subject-info" style='border: none'>
+                <h1>Няма добавена домашна за утре!</h1>
+            </div>
+        </div>
     {% endfor %}
 
 {%endblock%}

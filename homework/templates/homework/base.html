@@ -32,8 +32,12 @@
                 <span>Утре</span>
             </a>
             <a {% if thisWeekActive %} id='active' {%endif%} href="#">
-                <img src="{% static 'homework/img/number-7.png'%}" alt="Тази седмица">
-                <span>Тази седмица</span>
+                <img src="{% static 'homework/img/number-7.png'%}" alt="Седмица">
+                <span>Седмица</span>
+            </a>
+            <a href="{% url 'messages-main' %}">
+                <img src="{% static 'homework/img/chatting.png'%}" alt="Тази седмица">
+                <span>Чат</span>
             </a>
             <div class='auth'>
                 {% if user.is_authenticated %}

@@ -7,6 +7,9 @@ class Message(models.Model):
     message = models.TextField(verbose_name="Съобщение")
     dateAdded = models.DateTimeField(verbose_name="Дата на добавяне", auto_now_add=True)
 
+    def __str__(self):
+        return self.message
+
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Постове"

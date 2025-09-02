@@ -3,23 +3,33 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>User Messages</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
         <title>{% if title %} {{title}} {% else %} Default {% endif %}</title>
+        <link rel='icon' href={% static 'UserMessages/img/message.png'%}>
         <link rel="stylesheet" href={% static 'UserMessages/css/reset.css'%}>
+        <link rel="stylesheet" href={% static 'UserMessages/css/post.css'%}>
+        <link rel="stylesheet" href={% static 'UserMessages/css/newpost.css'%}>
+        <link rel="stylesheet" href={% static 'UserMessages/css/navigation.css'%}>
     </head>
     <body>
-        <header>
-            <h1>Добре дошли в малката социална мрежа на 9."ж" клас!</h1>
-            <h2>Влезнал потребител: <i>{{user.username}}</i> </h2>
-        </header>
+        <nav>
+            <a href="{% url 'homework-home'%}">
+                <img src="{% static 'UserMessages/img/back-arrow.png'%}" alt="Начало">
+                <span>Връщане към база данни</span>
+            </a>
+            <h1>Малката социална мрежа на 9."ж" клас</h1>
+            <h2><span>Добре дошли,</span> {{user.username}} </h2>
+        </nav>
         <main>
             {% block content %}
             <!-- Page content goes here -->
             {% endblock %}
         </main>
         <footer>
-            <p>&copy; 2024 HomeworkManager</p>
+            <span> &copy 2025 9."ж" клас от Математическа гимназия "Академик Кирил Попов", Пловдив използва този сайт през учебната година 2025 / 2026 </span>
         </footer>
     </body>
 </html>

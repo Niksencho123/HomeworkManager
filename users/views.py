@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import resolve
 from django.contrib import messages
-from .forms import SignUpForm
+from .forms import SignUpForm, ProfileUpdate, UserUpdate
 from django.http import Http404
 from .models import StudentProfile
 
@@ -43,7 +43,6 @@ def profileHomework(request, profileId):
         raise Http404("Потребителят не е намерен")
     context = {
         "userInfo": lookupUser,
-        
     }
     if request.user.is_authenticated:
         if request.user.id == profileId:
@@ -53,4 +52,16 @@ def profileHomework(request, profileId):
             context["title"] = f"Профил №{profileId}"
     else:
         context["title"] = f"Профил №{profileId}"
+    if request.method == "POST":
+        userform = UserUpdate(request.POST, instance=request.user)
+        profileform = ProfileUpdate(request.POST, request.FILES, instance=request.user.studentprofile)
+        if userform.is_valid() and profileform.is_valid():
+            userform.save()
+            profileform.save()
+            return redirect("users-profileinfo", profileId=request.user.id)
+    else:
+        userform = UserUpdate(instance=request.user)
+        profileform = ProfileUpdate(request.FILES, instance=request.user.studentprofile)
+    context["userform"] = userform
+    context["profileform"] = profileform
     return render(request, "users/account-homework.html", context=context)

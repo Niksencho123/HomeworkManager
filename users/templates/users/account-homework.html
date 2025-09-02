@@ -21,5 +21,16 @@
         <p class='info'><span id='bolder'>Електронна поща: </span>{{userInfo.email}}</p>
         <p class='info'><span id='bolder'>Създаден на: </span>{{userInfo.date_joined|date:"d.m.Y"}}</p>
     </div>
+    
 </div>
+{% if user.id == userInfo.id%}
+    <div id='forms'>
+        <form method='POST' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{userform.as_div}}
+            {{profileform.as_div}}
+            <input type='submit' value='Актуализиране'>
+        </form>
+    </div>
+{% endif %}
 {% endblock %}
