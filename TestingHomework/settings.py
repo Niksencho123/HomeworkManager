@@ -89,12 +89,12 @@ WSGI_APPLICATION = 'TestingHomework.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 # DATABASES['default'] = {
 #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #     'NAME': 'postgres',
@@ -107,16 +107,16 @@ DATABASES = {
 #     },
 #     'ATOMIC_REQUESTS': True
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'defaultdb',
-#         'USER': 'avnadmin',
-#         'PASSWORD': 'AVNS_JRSPkxpYD20AfB99rNN',
-#         'HOST': 'pg-1a0d340e-nikolaibanev123-b329.d.aivencloud.com',
-#         'PORT': '14173',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_JRSPkxpYD20AfB99rNN',
+        'HOST': 'pg-1a0d340e-nikolaibanev123-b329.d.aivencloud.com',
+        'PORT': '14173',
+    }
+}
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HomeworkManager.settings')
 # Password validation
