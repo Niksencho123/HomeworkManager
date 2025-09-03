@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,14 +80,36 @@ WSGI_APPLICATION = 'TestingHomework.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+# DATABASES['default'] = {
+#     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#     'NAME': 'postgres',
+#     'USER': 'postgres',
+#     'PASSWORD': 'NiksenchoBG123!',
+#     'HOST': 'db.ygymubyntvrbuwdvolxh.supabase.co',
+#     'PORT': '5432',
+#     'OPTIONS': {
+#         'sslmode': 'require',
+#     },
+#     'ATOMIC_REQUESTS': True
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_JRSPkxpYD20AfB99rNN',
+        'HOST': 'pg-1a0d340e-nikolaibanev123-b329.d.aivencloud.com',
+        'PORT': '14173',
     }
 }
 
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HomeworkManager.settings')
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
