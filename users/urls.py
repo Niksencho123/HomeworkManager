@@ -8,7 +8,7 @@ urlpatterns = [
         "login/",  
         account_views.LoginView.as_view(
             template_name='users/login.html', 
-            extra_context={"loginActive": True}
+            extra_context={"loginActive": True, "title": "Влизане"}
         ), 
         name="users-login"
     ),

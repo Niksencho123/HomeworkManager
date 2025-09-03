@@ -13,10 +13,10 @@
     </div>
     {% for post in posts%}
         <div class='post'>
-            <img src="{{post.userConn.studentprofile.profilePicture.url}}">
             <div class='content'>
                 <div class='user-info'>
-                    <h1><span>@{{post.userConn.username}}</span> ({{post.userConn.first_name}} {{post.userConn.last_name}})</h1>
+                    <img src="{{post.userConn.studentprofile.profilePicture.url}}">
+                    <h1><a href="{%url 'users-profileinfo' post.userConn.id%}"><span>@{{post.userConn.username}}</span></a> ({{post.userConn.first_name}} {{post.userConn.last_name}})</h1>
                     <h2>{{post.dateAdded|date:"G:i ч. | j F Y"}}</h2>
                 </div>
                 <div class='post-info'>
@@ -25,4 +25,24 @@
             </div>
         </div>
     {% endfor %}
+    <div class='pagination'>
+        {% if posts.has_previous %}
+            <a href="?page=1">&lt &lt</a>
+            <a href="?page={{posts.previous_page_number}}">&lt;</a>
+        {% else %}
+            <a class='disabled' href="#">&lt&lt</a>
+            <a class='disabled' href="#">&lt;</a>
+        {% endif %}
+        <span class="current">
+            Страница {{ posts.number }} от {{ posts.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">&gt</a>
+            <a href="?page={{ posts.paginator.num_pages }}">&gt&gt</a>
+        {% else %}
+            <a class='disabled' href='#'>&gt</a>
+            <a class='disabled' href='#'>&gt&gt</a>
+        {% endif %}
+    </div>
 {% endblock %}

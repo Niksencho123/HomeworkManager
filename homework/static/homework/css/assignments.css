@@ -71,3 +71,15 @@
     }
 
 }
+@media only screen and (max-width: 600px)
+{
+    .subject-info
+    {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    .subject-info h1
+    {
+        padding: 0;
+    }
+}

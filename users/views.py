@@ -27,7 +27,7 @@ def register(request):
             return render(request, "users/register.html", {"form": form})
     else:
         form = SignUpForm()
-    return render(request, "users/register.html", {"form": form, "registerActive": True})
+    return render(request, "users/register.html", {"form": form, "registerActive": True, "title": "Регистриране"})
 
 from django.contrib.auth import logout
 from django.views import View

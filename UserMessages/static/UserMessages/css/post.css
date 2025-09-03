@@ -2,33 +2,39 @@
 {
     display: flex;
     flex-direction: row;
-    align-items:center;
+    box-sizing:border-box;
     margin: 2%;
+    align-items:center;
     border-radius: 10px;
-    box-shadow: 8px 8px 2px rgba(73, 73, 73, 0.663);
+    box-shadow: 5px 5px 1px rgba(73, 73, 73, 0.663);
     border: 2px solid black;
-    padding: 5px;
+    padding: 15px;
+    flex: 1;
 }
-.post > img
+.post img
 {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid black;
-    margin: 20px;
-    margin-right: 40px;
+    margin: 10px;
+}
+.post > .content
+{
+    flex: 1;
 }
 .post > .content > .user-info
 {
     display: flex;
     flex-direction: row;
-    align-items: center;
     flex-wrap: wrap;
-    border-bottom: 2px solid black;
-    gap: 10px
+    align-items: center;
+    border-bottom: 1px solid gray;
+    gap: 10px;
+    flex-grow: 1;
 }
-.post > .content > .user-info > h1
+.post > .content > .user-info h1
 {
     color: rgb(14, 86, 255);
     font-weight: 300;
@@ -37,9 +43,18 @@
     align-items: center;
     gap: 1px;
 }
-.post > .content > .user-info > h1 > span
+.post > .content > .user-info h1 span
 {
     font-size: 1.8rem;
+
+}
+.post > .content > .user-info h1 a
+{
+    color: rgb(14, 86, 255);
+}
+.post > .content > .user-info h1 a:hover
+{
+    color: rgb(0, 56, 186);
 }
 .post > .content > .user-info > h2
 {
@@ -50,4 +65,43 @@
 {
     font-weight: 300;
     font-size: 1.5rem;
+    display: block;
+}
+@media screen and (max-width: 600px)
+{
+    .post img
+    {
+        margin: 5px;
+        width: 65px;
+        height: 65px;
+    }
+    .post > .content
+    {
+        gap: 0px;
+    }
+    .post > .content > .user-info
+    {
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+    .post > .content > .user-info h1
+    {
+        font-size: 1.1rem;
+    }
+    .post > .content > .user-info h1  span
+    {
+        font-size: 1.3rem;
+    }
+    .post > .content > .user-info  h2
+    {
+        font-size: 1rem;
+        padding-bottom: 5px;
+    }
+    .post > .content > .post-info > p
+    {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 2px;
+    }
 }

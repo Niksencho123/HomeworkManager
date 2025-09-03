@@ -4,7 +4,7 @@
 <!-- * Вече не * Трябва да се оправи --> 
 {%block 'content'%}
 
-    {% for assignment in homework%}
+    {% for assignment in assignments%}
         
         <div class="assignment-box">
             <div class="subject-info">
@@ -24,5 +24,26 @@
             </div>
         </div>
     {% endfor %}
+    {% if is_paginated %}
+        <div class='pagination'>
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&lt &lt</a>
+                <a href="?page={{assignments.previous_page_number}}">&lt;</a>
+            {% else %}
+                <a class='disabled' href="?page=1">&lt&lt</a>
+                <a class='disabled' href="?page={{assignments.previous_page_number}}">&lt;</a>
+            {% endif %}
+            <span class="current">
+                Страница {{ page_obj.number }} от {{ page_obj.paginator.num_pages }}
+            </span>
 
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">&gt</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">&gt&gt</a>
+            {% else %}
+                <a class='disabled' href='#'>&gt</a>
+                <a class='disabled' href='#'>&gt&gt</a>
+            {% endif %}
+            </div>
+    {% endif %}
 {%endblock%}
