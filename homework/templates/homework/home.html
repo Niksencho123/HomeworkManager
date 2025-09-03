@@ -25,6 +25,16 @@
             <p>{{message.messageText}}</p>
         </div>
     </div>
+{% empty%}
+    <div class="messagesTab green">
+        <div class='messagesHeader'>
+            <img src="{% static 'homework/img/information.png' %}">
+            <h1>Няма активни съобщения</h1>
+        </div>
+        <div class='messagesContent'>
+            <p>Няма нищо за показване тук...</p>
+        </div>
+    </div>
 {% endfor %}
 
 {%endblock%}

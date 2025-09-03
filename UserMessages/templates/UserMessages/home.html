@@ -5,7 +5,7 @@
     <div class='add-post'>
         <form method="POST" action="{% url 'messages-main'%}">
             {% csrf_token %}
-            <input required type='text' id='new-message' name='new-message'>
+            <input required type='text' placeholder="Въведете съобщение" id='new-message' name='new-message'>
             <button type="submit">
                 <img src="{% static 'UserMessages/img/send.png'%}" alt="Submit" width="20" height="20">
             </button>

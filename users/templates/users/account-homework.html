@@ -15,6 +15,8 @@
         <p class='info'><span id='bolder'>Пълно име: </span>{{userInfo.first_name}} {{userInfo.last_name}}</p>
         {% if userInfo.studentprofile.classNumber == -1%}
         <p class='info'><span id='bolder'>Номер в класа: </span>Все още няма въведен номер от администратор</p>
+        {% elif userInfo.studentprofile.classNumber == 27%}
+        <p class='info'><span id='bolder'>Класен ръководител на 9.'Ж' клас</p>
         {% else%}
         <p class='info'><span id='bolder'>Номер в класа: </span>{{userInfo.studentprofile.classNumber}}</p>
         {%endif%}
