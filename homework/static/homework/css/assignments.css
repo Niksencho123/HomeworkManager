@@ -3,14 +3,14 @@
 {
     margin: 2%;
     margin-bottom: 0.5%;
-    background: rgba(255, 255, 255, 0.27);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(91, 91, 91, 0.512);
     backdrop-filter: blur(6.4px);
     -webkit-backdrop-filter: blur(6.4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 30px;
-    border-left: 5px solid rgb(9, 84, 9);
+    border-left: 5px solid rgb(63, 60, 60);
     transition: scale 0.5s;
 }
 .assignment-box:hover
@@ -28,26 +28,32 @@
 }
 .subject-info h1
 {
-    color: rgb(38, 71, 5);
+    color: rgb(95, 180, 10);
     padding-bottom: 10px;
 }
 .subject-info a
 {
-    text-decoration-color: rgb(0, 110, 5);
+    text-decoration-color: rgb(27, 100, 30);
 }
 .description-info
 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 .description-info p
 {
-    font-weight: 400;
+    font-weight: 300;
     padding-top: 10px;
 }
 .description-info .desc
 {
-    font-weight: 900;
-    font-size: 1.6rem;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+.dueDateTag
+{
+    margin: 2%;
+    text-align: center;
+    font-weight: 400;
 }
 
 @media only screen and (max-width: 900px)

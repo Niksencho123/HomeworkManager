@@ -13,23 +13,20 @@
 
 .messagesTab.orange
 {
-    background: #ffcd70;
-    background: linear-gradient(30deg, rgba(255, 205, 112, 1) 0%, rgba(255, 166, 0, 1) 100%);
-    border: 3px solid rgb(148, 140, 0)
+    background: #b88a01;
+    border: 3px solid rgb(255, 242, 0)
 }
 
 .messagesTab.red
 {
-    background: #ff8282;
-    background: linear-gradient(30deg, rgba(255, 130, 130, 1) 0%, rgba(255, 42, 0, 1) 100%);
-    border: 3px solid rgb(139, 2, 2);   
+    background: #a40101;
+    border: 3px solid rgb(255, 4, 4);   
 }
 
 .messagesTab.green
 {
-    background: #7ff062;
-    background: linear-gradient(30deg, rgba(127, 240, 98, 1) 0%, rgba(42, 153, 11, 1) 100%);
-    border: 3px solid rgb(86, 135, 0);
+    background: #1c8a01;
+    border: 3px solid rgb(162, 255, 0);
 }
 
 

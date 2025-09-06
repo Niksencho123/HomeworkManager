@@ -37,7 +37,7 @@ class Home(View):
 #         }
 #         return render(request, "homework/tomorrow.html", context=context)
     
-class TomorrowTest(ListView):
+class Tomorrow(ListView):
     model = models.Assignment
     template_name = "homework/tomorrow.html"
     context_object_name = "assignments"
@@ -50,6 +50,21 @@ class TomorrowTest(ListView):
         context['tomorrowActive'] = True
         context['title'] = "Утрешни задания"
         return context
+
+class All(ListView):
+    model = models.Assignment
+    template_name = "homework/all.html"
+    context_object_name = "assignments"
+    paginate_by = 10
+    def get_queryset(self):
+        return models.Assignment.objects.all().order_by("-dateDue")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['allActive'] = True
+        context['title'] = "Всички задания"
+        return context
+
 
 
 def assignmentInfo(request, homeworkId):
