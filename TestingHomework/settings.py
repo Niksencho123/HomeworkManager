@@ -108,14 +108,14 @@ WSGI_APPLICATION = 'TestingHomework.wsgi.application'
 #     'ATOMIC_REQUESTS': True
 # }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'defaultdb',
-        'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_JRSPkxpYD20AfB99rNN',
-        'HOST': 'pg-1a0d340e-nikolaibanev123-b329.d.aivencloud.com',
-        'PORT': '14173',
-    }
+      'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+         'NAME': 'defaultdb',
+         'USER': 'avnadmin',
+         'PASSWORD': 'AVNS_JRSPkxpYD20AfB99rNN',
+         'HOST': 'pg-1a0d340e-nikolaibanev123-b329.d.aivencloud.com',
+         'PORT': '14173',
+     }
 }
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HomeworkManager.settings')
