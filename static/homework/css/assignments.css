@@ -1,0 +1,90 @@
+/* *Стилове за задания */
+.assignment-box
+{
+    margin: 2%;
+    margin-bottom: 0.5%;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background-color: rgba(79, 101, 61, 0.71);
+    backdrop-filter: blur(6.4px);
+    -webkit-backdrop-filter: blur(6.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-left: 5px solid rgb(20, 69, 5);
+    transition: scale 0.5s;
+}
+.assignment-box:hover
+{
+    scale: 1.02;
+}
+.subject-info
+{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: baseline;
+    border-bottom: 3px solid black;
+    border-radius: 4px;
+}
+.subject-info h1
+{
+    color: rgb(95, 180, 10);
+    padding-bottom: 10px;
+}
+.subject-info a
+{
+    text-decoration-color: rgb(27, 100, 30);
+}
+.description-info
+{
+    font-size: 1.6rem;
+}
+.description-info p
+{
+    font-weight: 300;
+    padding-top: 10px;
+}
+.description-info .desc
+{
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+.dueDateTag
+{
+    margin: 2%;
+    text-align: center;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 900px)
+{
+    .subject-info h1
+    {
+        font-size: 1.4rem;
+    }
+    .subject-info h3
+    {
+        font-size: 1.1rem;
+    }
+    .description-info p
+    {
+        font-size: 1rem;
+    }
+    .description-info .desc
+    {
+        font-size: 1.1rem;
+    }
+
+}
+@media only screen and (max-width: 600px)
+{
+    .subject-info
+    {
+        flex-direction: column;
+        padding-bottom: 10px;
+    }
+    .subject-info h1
+    {
+        padding: 0;
+    }
+}

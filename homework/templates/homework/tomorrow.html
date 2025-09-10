@@ -5,7 +5,9 @@
 {%block 'content'%}
 
     {% for assignment in assignments%}
-        
+        {% ifchanged assignment.dateDue%}
+            <h1 class='dueDateTag'>Домашна работа за {{assignment.dateDue}}</h1>
+        {% endifchanged %}
         <div class="assignment-box">
             <div class="subject-info">
                 <a href="{% url 'homework-assignment' assignment.id%}">

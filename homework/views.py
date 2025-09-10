@@ -41,10 +41,15 @@ class Tomorrow(ListView):
     model = models.Assignment
     template_name = "homework/tomorrow.html"
     context_object_name = "assignments"
-    paginate_by = 2
+    paginate_by = 20
     def get_queryset(self):
-        tomorrow = timezone.localdate() + timedelta(days=1)
-        return models.Assignment.objects.filter(dateDue=tomorrow)
+        today = timezone.localdate()
+        tomorrow = today + timedelta(days=1)
+        return (
+            models.Assignment.objects
+            .filter(dateDue__in=[today, tomorrow])
+            .order_by("-dateDue")
+        )
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['tomorrowActive'] = True
