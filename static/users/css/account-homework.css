@@ -1,0 +1,44 @@
+.profile-info
+{
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.156);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+
+.profile-info img
+{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px;
+    margin-right: 40px;
+}
+
+.profile-info > .additional-info > p
+{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+@media only screen and (max-width: 600px)
+{
+    .profile-info
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-info img
+    {
+        margin: 0;
+    }
+}
