@@ -4,10 +4,9 @@ from . import models
 # Register your models here.
 admin.site.register(models.Messages)
 admin.site.register(models.Subject)
-admin.site.site_title = "Администраторски панел - 9.'ж'"
-admin.site.site_header = "Административни функции"
-admin.site.index_title = "Изберете един от дадени модули на сайта"
-
+admin.site.site_header = "Официален сайт на 9.'ж' клас"
+admin.site.site_title = "Администраторски панел"
+admin.site.index_title = "Добре дошли в администраторския панел!"
 class AssignmentAdmin(admin.ModelAdmin):
     exclude = ("addedBy",)
     def save_model(self, request, obj, form, change):
