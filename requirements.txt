@@ -8,3 +8,4 @@ dj_database_url
 packaging
 requests
 sqlparse
+django-unfold

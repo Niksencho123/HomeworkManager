@@ -37,6 +37,10 @@
                 <img {% if allActive%} src="{% static 'homework/img/database-active.png'%}" {% else %} src="{% static 'homework/img/database.png'%}" {% endif %} alt="Всички">
                 <span>Всички</span>
             </a>
+            <a {% if adminActive %} id='active' {%endif%} href="{% url 'admin:index'%}">
+                <img src="{% static 'homework/img/administrator.png'%}" alt="Администратор">
+                <span>Админ</span>
+            </a>
             <a href="{% url 'messages-main' %}">
                 <img src="{% static 'homework/img/chatting.png'%}" alt="Тази седмица">
                 <span>Чат</span>
