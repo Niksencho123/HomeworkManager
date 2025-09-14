@@ -26,23 +26,31 @@
         <nav>
             <img id='logo-img' src={% static 'homework/img/logo.png'%}>
             <a {% if homeActive %} id='active' {%endif%} href="{% url 'homework-home'%}">
-                <img {% if homeActive%} src="{% static 'homework/img/home-active.png'%}" {% else %} src="{% static 'homework/img/home.png'%}" {% endif %} alt="Начало">
+                <img src="{% static 'homework/img/home-active.png'%}" alt="Начало">
                 <span>Начало</span>
             </a>
             <a {% if tomorrowActive %} id='active' {%endif%} href="{% url 'homework-tomorrow'%}">
-                <img style='width: 45px; height:45px' {% if tomorrowActive%} src="{% static 'homework/img/calendar-active.png'%}" {% else %} src="{% static 'homework/img/calendar.png'%}" {% endif %} alt="Утре">
+                <img style='width: 45px; height:45px' src="{% static 'homework/img/calendar-active.png'%}" alt="Утре">
                 <span>Утре</span>
             </a>
             <a {% if allActive %} id='active' {%endif%} href="{% url 'homework-all'%}">
-                <img {% if allActive%} src="{% static 'homework/img/database-active.png'%}" {% else %} src="{% static 'homework/img/database.png'%}" {% endif %} alt="Всички">
+                <img src="{% static 'homework/img/database-active.png'%}" alt="Всички">
                 <span>Всички</span>
             </a>
-            <a {% if adminActive %} id='active' {%endif%} href="{% url 'admin:index'%}">
-                <img src="{% static 'homework/img/administrator.png'%}" alt="Администратор">
-                <span>Админ</span>
+            <a {% if addActive %} id='active' {%endif%} href="{% url 'homework-add'%}">
+                <img src="{% static 'homework/img/add.png'%}" alt="Всички">
+                <span>Добавяне</span>
             </a>
+            {% if user.is_authenticated %}
+                {% if user.is_staff%}
+                    <a {% if adminActive %} id='active' {%endif%} href="{% url 'admin:index'%}">
+                        <img src="{% static 'homework/img/administrator.png'%}" alt="Администратор">
+                        <span>Админ</span>
+                    </a>
+                {% endif %}
+            {% endif %}
             <a href="{% url 'messages-main' %}">
-                <img src="{% static 'homework/img/chatting.png'%}" alt="Тази седмица">
+                <img src="{% static 'homework/img/square.png'%}" alt="Тази седмица">
                 <span>Чат</span>
             </a>
             <div class='auth'>
@@ -57,7 +65,7 @@
                     </a>
                 {%else%}
                     <a {% if loginActive %} id='active' {%endif%} id='login' href="{% url 'users-login' %}">
-                        <img src="{% static 'homework/img/login.png'%}" alt="Влезни">
+                        <img style='width: 50px; height:50px' src="{% static 'homework/img/login.png'%}" alt="Влезни">
                         <span>Влизане</span>
                     </a>
                     <a {% if registerActive %} id='active' {%endif%} id='register' href="{% url 'users-register' %}">

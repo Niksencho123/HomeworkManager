@@ -43,3 +43,16 @@ class Assignment(models.Model):
     class Meta:
         verbose_name = "Задание"
         verbose_name_plural = "Задания"
+
+class DutyStudent(models.Model):
+    userConn = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Потребител")
+    dateBegin = models.DateField(verbose_name="Начало на дежурство")
+    dateEnd = models.DateField(verbose_name="Край на дежурство")
+
+    def __str__(self):
+        begin = self.dateBegin.strftime("%d.%m.%Y") if self.dateBegin else "?"
+        end = self.dateEnd.strftime("%d.%m.%Y") if self.dateEnd else "?"
+        return f"Дежурство на номер {self.userConn.studentprofile.classNumber} от {begin} до {end}"
+    class Meta:
+        verbose_name = "Дежурство"
+        verbose_name_plural = "Дежурства"

@@ -22,7 +22,7 @@
     display: block;
     font-size: 1.5rem;
 }
-#forms input
+#forms input, select, textarea
 {
     display: block;
     border: 1px solid black;
@@ -35,10 +35,19 @@
     color: black;
     outline: none;
 }
-
-#forms input:focus
+#forms option
 {
-    box-shadow: 0px 0px 10px rgb(10, 121, 0);
+    font-size: 1.2rem;
+}
+
+#forms select option {
+    background-color: #fcfcfc; 
+    color: #010101;            
+}
+
+#forms input:focus, select:focus, textarea:focus
+{
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
     outline-offset: 0;
 }
 
@@ -52,14 +61,14 @@
     font-weight: 500;
     padding: 3px;
     border: 1px solid black;
-    color:rgb(37, 120, 9);
+    color:rgb(4, 29, 255);
     transition: background-color 0.4s, box-shadow 0.4s;
 }
 #forms > form input[type='submit']:hover
 {
-    background-color: rgb(37, 120, 9);
+    background-color: rgb(4, 29, 255);
     color: white;
-    box-shadow: 0px 0px 40px rgb(0, 48, 0);
+    box-shadow: 0px 0px 40px rgb(16, 110, 234);
     cursor: pointer;
 }
 #forms ul

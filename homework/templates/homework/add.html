@@ -1,0 +1,24 @@
+{% extends 'homework/base.html'%}
+{% load static %}
+
+{% block 'content'%}
+{% if user.is_authenticated%}
+    {% for duty in activeDuties%}
+        {% if user.id == duty.userConn.id%}
+            <h1 class='dueDateTag'>Имаш дежурство от {{duty.dateBegin}} до {{duty.dateEnd}}</h1>
+            <div id='forms'>
+                <form method='POST'>
+                    {% csrf_token %}
+                    {{ form.media }}
+                    {{form.as_div}}
+                    <input type='submit' value='Добавяне'>
+                </form>
+            </div>
+        {% endif %}
+    {% empty %}
+    <h1 class='dueDateTag'>Нямаш активно дежурство тази седмица. Късметлия...</h1>
+    {% endfor %}
+{% else %}
+<h1 class='dueDateTag'>Влез в профила си, за да видищ дали имаш дежурство тази седмица!</h1>
+{% endif %}
+{% endblock %}

@@ -5,12 +5,12 @@
     margin-bottom: 0.5%;
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    background-color: rgba(98, 169, 41, 0.71);
+    background-color: rgba(58, 95, 215, 0.721);
     backdrop-filter: blur(6.4px);
     -webkit-backdrop-filter: blur(6.4px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 30px;
-    border-left: 5px solid rgb(20, 69, 5);
+    border-left: 5px solid rgb(0, 68, 255);
     transition: scale 0.5s;
 }
 .assignment-box:hover
@@ -28,12 +28,12 @@
 }
 .subject-info h1
 {
-    color: rgb(5, 48, 5);
+    color: rgb(162, 193, 243);
     padding-bottom: 10px;
 }
 .subject-info a
 {
-    text-decoration-color: rgb(27, 100, 30);
+    text-decoration-color: rgb(85, 69, 255);
 }
 .description-info
 {

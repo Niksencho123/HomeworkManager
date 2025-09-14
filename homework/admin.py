@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 from . import models
 
 # Register your models here.
@@ -12,4 +13,6 @@ class AssignmentAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.addedBy = request.user
         return super().save_model(request, obj, form, change)
+
 admin.site.register(models.Assignment, AssignmentAdmin)
+admin.site.register(models.DutyStudent)

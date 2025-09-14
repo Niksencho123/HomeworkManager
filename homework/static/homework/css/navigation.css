@@ -109,7 +109,7 @@ nav a > img
 }
 #active
 {
-    background-color: #676767;
+    background-color: #1a1a1a;
     color: rgb(234, 218, 218);
     text-shadow: 3px 3px 5px black;
 }
@@ -126,20 +126,7 @@ nav img {
     flex-direction: row;
 }
 
-nav #logout::before
-{
-    background-color: #760b0b;
-}
 
-nav #login::before
-{
-    background-color: #08781c;
-}
-
-nav #register::before, #profileView::before
-{
-    background-color: #7f5009;
-}
 nav #login, #logout, #register, #profileView
 {
     margin: 3px;

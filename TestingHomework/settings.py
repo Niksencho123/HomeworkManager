@@ -56,7 +56,7 @@ cloudinary.config(
     api_secret = "O3alKQhwXm0x7t3wo4pVcjC3c2A"
 )
 # Номер на версията
-VERSION = "0.8.2"
+VERSION = "0.9.0"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
