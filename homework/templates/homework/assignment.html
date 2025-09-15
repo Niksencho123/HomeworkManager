@@ -12,8 +12,17 @@
         <div class="description-info">
             <p><span class='desc'>Описание:</span> {{assignment.description}}</p>
             <p><span class='desc'>Добавено на:</span> {{assignment.dateAdded|date:"G:i ч. | j F Y"}}</p>
-            <p><span class='desc'>Добавено от:</span> {{assignment.addedBy.username}}</p>
+            <p><span class='desc'>Добавено от:</span> {{assignment.addedBy.first_name}} {{assignment.addedBy.last_name}}</p>
         </div>
     </div>
-
+    {% if user.is_authenticated and assignment.addedBy.id == user.id %}
+        <h1 class='dueDateTag'>Актуализиране на задание</h1>
+        <div id='forms'>
+            <form method='POST'>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type='submit' value='Актуализиране'>
+            </form>
+        </div>
+    {% endif %}
 {%endblock%}

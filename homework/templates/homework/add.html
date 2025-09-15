@@ -2,6 +2,24 @@
 {% load static %}
 
 {% block 'content'%}
+<table>
+    <tr>
+        <th> Номер в класа </th>
+        <th> Име, Фамилия </th>
+        <th> Ел. поща </th>
+    </tr>
+    {% for user in users%}
+    <tr {% for duty in activeDuties%} {% if duty.userConn.id == user.id%} class='active' {%endif%} {%endfor%}>
+        {% if user.studentprofile.classNumber == 27 %}
+        <td>Класен ръководител на 9."ж" клас</td>
+        {% else %}
+        <td>{{user.studentprofile.classNumber}}</td>
+        {% endif %}
+        <td>{{user.first_name}} {{user.last_name}}</td>
+        <td>{{user.email}}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% if user.is_authenticated%}
     {% for duty in activeDuties%}
         {% if user.id == duty.userConn.id%}

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
+from django.contrib.auth.models import User
 from django.views import View
 from django.utils import timezone
 from django.core.paginator import Paginator
@@ -64,21 +65,38 @@ def addAssignment(request):
         dateBegin__lte=today,
         dateEnd__gte=today
     )
+    allUsers = User.objects.select_related("studentprofile").order_by("studentprofile__classNumber")
     if request.method == "POST":
         form = forms.AssignmentAdd(request.POST)
         if form.is_valid():
-            form.save()
-
+            assignment = form.save(commit=False)
+            assignment.addedBy = request.user
+            assignment.save()
             messages.success(request, f"Заданието беше добавено ")
             return redirect("homework-home")
         else:
             return render(request, "homework/add.html", {"form": form})
     else:
         form = forms.AssignmentAdd()
-    return render(request, "homework/add.html", {"form": form, "activeDuties": activeDuties, "addActive": True, "title": "Добавяне на задание"})
+    return render(request, "homework/add.html", {"form": form, "activeDuties": activeDuties, "users":allUsers, "addActive": True, "title": "Добавяне на задание"})
 
 
 
 def assignmentInfo(request, homeworkId):
+    today = timezone.now().date()
+    activeDuties = models.DutyStudent.objects.filter(
+        dateBegin__lte=today,
+        dateEnd__gte=today
+    )
     result = models.Assignment.objects.get(id=homeworkId)
-    return render(request, "homework/assignment.html", context={"assignment": result, "title": f"Задание №{result.id}"})
+    if request.method == "POST":
+        form = forms.AssignmentAdd(request.POST,instance=result)
+        if form.is_valid():
+            messages.success(request, f"Заданието беше актуализирано")
+            form.save()
+            return redirect("homework-home")
+        else:
+            return render(request, "homework/assignment.html", {"form": form})
+    else:
+        form = forms.AssignmentAdd(instance=result)
+    return render(request, "homework/assignment.html", context={"assignment": result, "duties": activeDuties,"form": form, "title": f"Задание №{result.id}"})

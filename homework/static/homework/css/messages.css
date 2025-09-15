@@ -73,18 +73,19 @@
     margin: 2%;
     text-align: center;
     /* From https://css.glass */
-    background: rgba(0, 163, 30, 0.66);
+    background: rgba(1, 124, 255, 0.66);
     border-radius: 16px;
+    padding: 2%;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 2px solid rgb(0, 62, 21);
     box-shadow: 2px 2px 2px;
-    padding: 3px
 }
 .website-messages h2
 {
     font-weight: 300;
+    font-size: 1.5rem;
 }
 
 
@@ -108,6 +109,6 @@
     .website-messages h2
     {
         font-weight: 300;
-        font-size: 1.1rem;
+        font-size: 1.4rem;
     }
 }
