@@ -6,7 +6,7 @@ class AssignmentAdd(forms.ModelForm):
     
     class Meta:
         model = models.Assignment
-        fields = ["subject", "description", "dateDue"] 
+        fields = ["subject", "description", "dateDue", "typeOfAssignment"] 
         widgets = {
             "dateDue": forms.DateInput(attrs={"type": "date"})
         }  

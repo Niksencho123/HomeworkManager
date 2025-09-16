@@ -6,7 +6,7 @@
 
     {% for assignment in assignments%}
         {% ifchanged assignment.dateDue%}
-            <h1 class='dueDateTag'>Домашна работа за {{assignment.dateDue}}</h1>
+            <h1 class='dueDateTag'>Задания за {{assignment.dateDue}}</h1>
         {% endifchanged %}
         <div class="assignment-box">
             <div class="subject-info">
@@ -16,6 +16,7 @@
                 <h3>{{assignment.subject.teacher}}</h3>
             </div>
             <div class="description-info">
+                <p><span class='desc'>Тип на заданието:</span> {{assignment.typeOfAssignment}}</p>
                 <p><span class='desc'>Описание:</span> {{assignment.description}}</p>
             </div>
         </div>

@@ -31,12 +31,21 @@ class Subject(models.Model):
         verbose_name = "Предмет"
         verbose_name_plural = "Предмети"
 
+class AssignmentType(models.TextChoices):
+    TESTWRITE = "Писмено изпитване", "Писмено изпитване"
+    TESTORAL = "Устно изпитване", "Устно изпитване"
+    TESTENTRY = "Входно равнище", "Входно равнище"
+    TESTEXIT = "Изходно равнище", "Изходно равнище"
+    HOMEWORK = "Домашна работа", "Домашна работа"
+    PROJECT = "Проект", "Проект"
+
 class Assignment(models.Model):
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, verbose_name="Предмет")
     description = models.TextField(verbose_name="Описание")
     addedBy = models.ForeignKey(User, null=True, default=None, on_delete=models.CASCADE, verbose_name="Добавен от потребител")
     dateAdded = models.DateTimeField("Добавено на", auto_now_add=True)
     dateDue = models.DateField(verbose_name="Крайна дата")
+    typeOfAssignment = models.CharField(max_length=255, verbose_name="Тип на заданието", choices=AssignmentType.choices, default=AssignmentType.HOMEWORK)
 
     def __str__(self):
         return self.description
