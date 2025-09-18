@@ -118,8 +118,12 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.abv.bg"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = "class9jemail@abv.bg"
-EMAIL_HOST_PASSWORD = "NikiBG123"
+if DEVELOPMENT == True:
+    EMAIL_HOST_USER = "class9jemail@abv.bg"
+    EMAIL_HOST_PASSWORD = "NikiBG123"
+else:
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 AUTH_PASSWORD_VALIDATORS = [
