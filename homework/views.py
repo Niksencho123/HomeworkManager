@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from datetime import timedelta
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.core.mail import send_mail
 from . import forms
 from . import models
 
@@ -44,7 +45,6 @@ class Tomorrow(ListView):
         context['tomorrowActive'] = True
         context['title'] = "Утрешни задания"
         return context
-
 class All(ListView):
     model = models.Assignment
     template_name = "homework/all.html"

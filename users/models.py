@@ -7,6 +7,7 @@ class StudentProfile(models.Model):
     user = models.OneToOneField(User, verbose_name="Потребител", on_delete=models.CASCADE)
     profilePicture = CloudinaryField("Профилна снимка", default = "user-profile_bwwzy0")
     classNumber = models.IntegerField(default=-1, verbose_name="Номер в класа")
+    sendEmails = models.BooleanField(verbose_name="Изпращане на имейли", default=False)
 
     def __str__(self):
         return f"Профилни данни на {self.user.username}"

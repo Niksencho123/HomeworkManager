@@ -65,7 +65,7 @@ def profileHomework(request, profileId):
             return redirect("users-profileinfo", profileId=request.user.id)
     else:
         userform = UserUpdate(instance=request.user)
-        profileform = ProfileUpdate(request.FILES, instance=request.user.studentprofile)
+        profileform = ProfileUpdate(instance=request.user.studentprofile)
     context["userform"] = userform
     context["profileform"] = profileform
     return render(request, "users/account-homework.html", context=context)

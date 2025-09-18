@@ -24,4 +24,4 @@ class ProfileUpdate(forms.ModelForm):
 
     class Meta:
         model = StudentProfile
-        fields = ("profilePicture",)
+        fields = ("profilePicture", "sendEmails",)

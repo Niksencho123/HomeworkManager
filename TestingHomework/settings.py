@@ -56,7 +56,7 @@ cloudinary.config(
     api_secret = "O3alKQhwXm0x7t3wo4pVcjC3c2A"
 )
 # Номер на версията
-VERSION = "1.0.1"
+VERSION = "1.1.0"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,6 +114,13 @@ else:
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HomeworkManager.settings')
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.abv.bg"
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = "class9jemail@abv.bg"
+EMAIL_HOST_PASSWORD = "NikiBG123"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 AUTH_PASSWORD_VALIDATORS = [
     {

@@ -51,19 +51,7 @@
     outline-offset: 0;
 }
 
-#forms > form input[type='submit']
-{
-    position: relative;
-    height: 35px;
-    width: 100%;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    padding: 3px;
-    border: 1px solid black;
-    color:rgb(4, 29, 255);
-    transition: background-color 0.4s, box-shadow 0.4s;
-}
+
 #forms > form input[type='submit']:hover
 {
     background-color: rgb(4, 29, 255);
