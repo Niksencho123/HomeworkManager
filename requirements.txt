@@ -9,3 +9,4 @@ packaging
 requests
 sqlparse
 django-unfold
+environ
