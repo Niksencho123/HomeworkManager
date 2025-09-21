@@ -6,7 +6,6 @@
     <tr>
         <th> Номер в класа </th>
         <th> Име, Фамилия </th>
-        <th> Ел. поща </th>
     </tr>
     {% for user in users%}
     <tr {% for duty in activeDuties%} {% if duty.userConn.id == user.id%} class='active' {%endif%} {%endfor%}>
@@ -16,7 +15,6 @@
         <td>{{user.studentprofile.classNumber}}</td>
         {% endif %}
         <td>{{user.first_name}} {{user.last_name}}</td>
-        <td>{{user.email}}</td>
     </tr>
     {% endfor %}
 </table>
