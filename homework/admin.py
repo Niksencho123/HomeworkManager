@@ -16,3 +16,17 @@ class AssignmentAdmin(admin.ModelAdmin):
 
 admin.site.register(models.Assignment, AssignmentAdmin)
 admin.site.register(models.DutyStudent)
+
+class ChoiceInline(admin.StackedInline):
+    model = models.Choices
+    extra = 5
+
+class QuestionAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["question", "questionCode"]}),
+        ("Начало и край", {"fields": ["beginDateTime", "endDateTime"]}),
+    ]
+
+    inlines = [ChoiceInline]
+
+admin.site.register(models.Question, QuestionAdmin)

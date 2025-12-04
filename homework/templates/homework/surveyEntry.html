@@ -1,0 +1,13 @@
+{% extends "homework/base.html" %}
+{% load static %}
+
+{% block content%}
+<h1 class='dueDateTag'>Напишете кода на гласуването, даден от администратор</h1>
+<h2 class='dueDateTag'>Гласувате като <b>{{user.first_name}} {{user.last_name}}, №{{user.studentprofile.classNumber}}<b></h2>
+<form id='survey' method='POST'> 
+    {% csrf_token %}
+    <label class="text" for='code'>Код: </label>
+    <input class="text" type='text' id='code' name='code'>
+    <input type='submit' value='Въвеждане'>
+</form>
+{% endblock %}

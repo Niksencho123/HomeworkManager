@@ -2,7 +2,7 @@
 {% load static %}
 
 <!-- * Вече не * Трябва да се оправи --> 
-{%block 'content'%}
+{%block content%}
     {% for assignment in assignments%}
         {% ifchanged assignment.dateDue%}
             <h1 class='dueDateTag'>{{assignment.dateDue}}</h1>

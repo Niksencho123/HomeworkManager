@@ -17,7 +17,9 @@
         <link rel="stylesheet" href={% static 'users/css/register.css'%}>
         <link rel="stylesheet" href={% static 'users/css/account-homework.css'%}>
         <link rel="stylesheet" href={% static 'homework/css/pagination.css'%}>
+        <link rel="stylesheet" href={% static 'homework/css/survey.css'%}>
         <link rel='icon' href={% static 'homework/img/database-icon.png'%}>
+        <script type='module' src={% static 'homework/js/firebase.js'%}></script>
     </head>
     <body>
         <header>
@@ -77,7 +79,7 @@
             <div>
         </nav>
         <main>
-            {% block 'content'%}
+            {% block content%}
             {% endblock %}
         </main>
         <footer>

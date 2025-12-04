@@ -1,0 +1,43 @@
+{% extends "homework/base.html" %}
+{% load static %}
+
+{% block content%}
+<style>
+    #voteScreen
+    {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        margin: 2%;
+        padding: 20px;
+    }
+    #voteScreen > form > label
+    {
+        font-size: 20px;
+    }
+    #voteScreen > form > input[type='submit']
+    {
+        color: black;
+        font-size:20px;
+        padding: 5px;
+        width:100%;
+        margin-top:5px
+    }
+</style>
+<h1 class='dueDateTag'>Участие в гласуванe с код <b>{{question.questionCode}}</b></h1>
+<div id='voteScreen'>
+    <h1 class='dueDateTag'>{{question.question}}</h1>
+    <form action="{% url 'homework-home' %}" method="post">
+        {%csrf_token%}
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for choice in question.choices_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choiceText }}</label><br>
+        {% endfor %}
+        <input type='submit' value='Гласуване'>
+    </form>
+</div>
+{% endblock %}

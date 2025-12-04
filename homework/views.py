@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 from django.views import View
 from django.utils import timezone
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from datetime import timedelta
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required, user_passes_test
 from . import forms
 from . import models
 
@@ -100,3 +101,43 @@ def assignmentInfo(request, homeworkId):
     else:
         form = forms.AssignmentAdd(instance=result)
     return render(request, "homework/assignment.html", context={"assignment": result, "duties": activeDuties,"form": form, "title": f"Задание №{result.id}"})
+
+def isPartOfClass(user):
+    if user.studentprofile.classNumber >= 1 and user.studentprofile.classNumber <= 25:
+        return True
+    else:
+        return False
+
+@login_required
+@user_passes_test(isPartOfClass, redirect_field_name="homework-home")
+def surveyInfo(request, code):
+    if request.method == "POST":
+        question = get_object_or_404(Question, pk=question_id)
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+    except (KeyError, Choice.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(
+            request,
+            "",
+            {
+                "question": question,
+                "error_message": "Не беше избран",
+            },
+        )
+    else:
+        selected_choice.save()
+        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+    if request.method == "GET":
+        try:
+            questionInfo = models.Question.objects.get(questionCode=code)
+        except models.Question.DoesNotExist:
+            raise Http404("Този код не е намерен!")
+        return render(request, "homework/surveyInfo.html", context = {"question": questionInfo})
+
+@login_required
+@user_passes_test(isPartOfClass, redirect_field_name="homework-home")
+def surveyEntry(request):
+    if request.method == "POST":
+        return redirect("homework-surveyInfo", code=request.POST.get("code"))
+    return render(request, "homework/surveyEntry.html")

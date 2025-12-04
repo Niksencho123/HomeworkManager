@@ -1,0 +1,35 @@
+#survey
+{
+    padding: 5px;
+    font-weight: 400;
+    margin: 2%;
+    padding: 2%;
+    border-left: 5px solid rgb(49, 49, 49);
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    background: rgba(255, 255, 255, 0.28);
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.419);
+    backdrop-filter: blur(6.7px);
+    -webkit-backdrop-filter: blur(6.7px);
+}
+
+#survey > *
+{
+    color: black;
+    font-size: 30px;
+
+}
+#survey > label
+{
+    font-size: 30px;
+    color: white;
+}
+#survey > input
+{
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid rgb(128, 128, 128);
+}
+

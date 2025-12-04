@@ -23,31 +23,30 @@ class Messages(models.Model):
     class Meta:
         verbose_name = "Съобщение"
         verbose_name_plural = "Съобщения"
-    def save(self, *args, **kwargs):
-        is_new = self.pk is None 
-        super().save(*args, **kwargs)
-        if is_new:
-            allUsers = User.objects.all()
-            emails = []
-            for user in allUsers:
-                if user.studentprofile.sendEmails == True:
-                    emails.append(user.email)
-            subject = f"{self.messageLabel}"
-            html_content = f"""
-            <h1>Ново съобщение на сайта</h1>
-            <h2>Администраторски код за важност: {self.messageImportance}</h2>
-            <p style="white-space: pre-wrap;">{self.messageText}</p>
-            """
-            from_email = "Пощата на 9.'ж' клас <nikolaibanev123@gmail.com>"
-            msg = EmailMessage()
-            msg["Subject"] = subject
-            msg["From"] = from_email
-            msg["To"] = ", ".join(emails)
-            msg.add_alternative(html_content, subtype='html')
-            with smtplib.SMTP("smtp.gmail.com", 587) as server:
-                server.starttls()
-                server.login("nikolaibanev123@gmail.com", "nupj vekf ihqo djbm")
-                server.send_message(msg, to_addrs=emails)
+    # def save(self, *args, **kwargs):
+    #     is_new = self.pk is None 
+    #     super().save(*args, **kwargs)
+    #     if is_new:
+    #         allUsers = User.objects.all()
+    #         emails = []
+    #         for user in allUsers:
+    #             if user.studentprofile.sendEmails == True:
+    #                 emails.append(user.email)
+    #         subject = f"{self.messageLabel}"
+    #         html_content = f"""
+    #         <h1>Ново съобщение на сайта</h1>
+    #         <h2>Администраторски код за важност: {self.messageImportance}</h2>
+    #         <p style="white-space: pre-wrap;">{self.messageText}</p>
+    #         """
+    #         from_email = "Пощата на 9.'ж' клас <nikolaibanev123@gmail.com>"
+    #         msg = EmailMessage()
+    #         msg["Subject"] = subject
+    #         msg["From"] = from_email
+    #         msg.add_alternative(html_content, subtype='html')
+    #         with smtplib.SMTP("smtp.gmail.com", 587) as server:
+    #             server.starttls()
+    #             server.login("nikolaibanev123@gmail.com", "nupj vekf ihqo djbm")
+    #             server.send_message(msg, to_addrs=emails)
 
 # *Готово
 class Subject(models.Model):
@@ -94,3 +93,18 @@ class DutyStudent(models.Model):
     class Meta:
         verbose_name = "Дежурство"
         verbose_name_plural = "Дежурства"
+
+class Question(models.Model):
+    question = models.CharField(max_length=255)
+    beginDateTime = models.DateTimeField()
+    endDateTime = models.DateTimeField()
+    questionCode = models.CharField(max_length=6, unique=True)
+
+class Choices(models.Model):
+    questionConn = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choiceText = models.CharField(max_length=255)
+
+class Vote(models.Model):
+    userConn = models.ForeignKey(User, on_delete=models.CASCADE)
+    questionConn = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choiceConn = models.ForeignKey(Choices, on_delete=models.CASCADE)

@@ -16,6 +16,8 @@ import dj_database_url
 import cloudinary
 import cloudinary.api
 import cloudinary.uploader
+import firebase_admin
+from firebase_admin import credentials
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,7 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary'
+    'cloudinary',
+    'fcm_django',
+    "rest_framework"
 ]
 cloudinary.config(
     cloud_name = "djuo9rhlp",
@@ -56,7 +60,12 @@ cloudinary.config(
     api_secret = "O3alKQhwXm0x7t3wo4pVcjC3c2A"
 )
 # Номер на версията
-VERSION = "1.1.0 - Ревизия №5"
+VERSION = "1.2"
+
+FCM_DJANGO_SETTINGS = {
+    "ONE_DEVICE_PER_USER": True,
+    "DELETE_INACTIVE_DEVICES": False
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -165,3 +174,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "homework-home"
 LOGOUT_REDIRECT_URL = 'homework-home'
 LOGIN_URL = "users-login"
+
